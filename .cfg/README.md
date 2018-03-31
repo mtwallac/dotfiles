@@ -8,6 +8,6 @@ Create a `.gitconfig.local` to put your Git credentials (and any other settings)
 
 ```
 [user]
-  name = Paul Esch-Laurent
-  email = p@uly.io
+  name = Michael Wallace
+  email = yourgithub@email.com
 ```
