@@ -1,0 +1,15 @@
+
+
+
+# Use up/down for history searching
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Case insensitive <Tab>-completion
+set completion-ignore-case on
+
+# Make '_' and '-' equal when completing
+set completion-map-case on
+
+# Cycle through completions
+"\t": menu-complete
