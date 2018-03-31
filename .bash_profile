@@ -198,8 +198,6 @@ alias .6='cd ../../../../../../'            # Go back 6 directory levels
 #Crypto prices
 alias crypto='curl usd.rate.sx'
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
 source ~/.bash_prompt
 
 # Set `emacs` as default editor
