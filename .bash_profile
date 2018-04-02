@@ -4,8 +4,14 @@
 
 alias composer="php /usr/local/bin/composer.phar"
 
-
+# Better ls
 alias ls='ls -G'
+
+# Kill process with given PID
+alias killpid='sudo kill -9'
+
+# Check the code signature of location
+alias sig='codesign -dv --verbose=4'
 
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
@@ -16,6 +22,9 @@ alias cpwd="pwd | tr -d '\n' | pbcopy"
 
 # ifconfig and pipe the output to grep and look for 'inet'
 alias inet="ifconfig | grep inet"
+
+# Config alias for version control of dot files
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 #go to home directory
 alias ~="cd ~"
