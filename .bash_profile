@@ -204,7 +204,7 @@ function whoisport (){
 
 function pidLoc (){
   pid=$1;
-  lsof -a -d cwd -p $pid;
+  sudo lsof -a -d cwd -p $pid;
 }
 
 #shortened clear
