@@ -19,6 +19,9 @@ alias egrep='egrep --color=auto'
 # Copy `pwd` with no '\n' to the clipboard
 alias cpwd="pwd | tr -d '\n' | pbcopy"
 
+# Search throguh command history
+alias hs='history | grep'
+
 # ifconfig and pipe the output to grep and look for 'inet'
 alias inet="ifconfig | grep inet"
 
@@ -170,12 +173,21 @@ haste() {
 	return 1
 }
 
+# Upload a file to the hastebin service and pipe the url to clipboard
+# Source: https://github.com/diethnis/standalones
 chaste() {
   haste $1 | pbcopy;
 }
 
+# Custom latex pdf command, will remove later
 pdf(){
   pdflatex -shell-escape cs4811-HW$@.tex
+}
+
+# Count number of files in a directory
+numfiles() {
+    N="$(ls $1 | wc -l)";
+    echo "$N files in $1";
 }
 
 #shortened clear
