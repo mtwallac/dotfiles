@@ -190,6 +190,23 @@ numfiles() {
     echo "$N files in $1";
 }
 
+# Find a file from working directory
+function whereis (){
+  find . -name "$1*";
+}
+
+# Find What is Using a Particular Port
+  # USAGE: $ whoisport 80
+function whoisport (){
+        port=$1;
+        sudo lsof -n -i:$port;
+}
+
+function pidLoc (){
+  pid=$1;
+  lsof -a -d cwd -p $pid;
+}
+
 #shortened clear
 alias c='clear'
 
