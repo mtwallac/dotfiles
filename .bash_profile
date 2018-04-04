@@ -179,11 +179,6 @@ chaste() {
   haste $1 | pbcopy;
 }
 
-# Custom latex pdf command, will remove later
-pdf(){
-  pdflatex -shell-escape cs4811-HW$@.tex
-}
-
 # Count number of files in a directory
 numfiles() {
     N="$(ls $1 | wc -l)";
