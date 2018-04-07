@@ -1,5 +1,5 @@
 
-#https://natelandau.com/my-mac-osx-bash_profile/ for bash_profile referencexw
+#https://natelandau.com/my-mac-osx-bash_profile/ for bash_profile reference
 
 alias composer="php /usr/local/bin/composer.phar"
 
