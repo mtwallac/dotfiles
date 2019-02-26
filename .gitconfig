@@ -25,15 +25,30 @@
 
 	# Commit files in the staging area to the last commit
 	commend = commit --amend --no-edit
+	
+	# Update list remote branches [https://stackoverflow.com/questions/36358265/when-does-git-refresh-the-list-of-remote-branches]
+	prune = git remote update origin --prune
 
 	# Stash everything
 	stash-all = stash save --include-untracked
 
+	# Push and set upstream for current branch to a specified remote
+	upstream = push --set-upstream origin
+	
 	# Soft reset
 	undo = reset --soft HEAD^
 
 	# Unstage from the the staging area
 	unstage = reset HEAD
+
+	# Purge cache for gitignore
+	purge = !git rm -r --cached . && git add .
+	
+	# Delete local branch
+	dlb = git branch -d 
+	
+	# Force delete local and remote branch
+	dbf = git branch -D 
 
 	# Mark a file as "assume unchanged"
 	assume = update-index --assume-unchanged
@@ -44,11 +59,16 @@
 
 	# List contributors with number of commits
 	who = shortlog -sn
+	
 
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
+	active = ls-remote --heads origin
+
+	# List branches sorted by last modified
+	b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
 
 [color]
 	ui = auto

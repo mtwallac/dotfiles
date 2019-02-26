@@ -16,6 +16,9 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# Count number of files in a directory
+alias count="ls | wc -l"
+
 # Copy `pwd` with no '\n' to the clipboard
 alias cpwd="pwd | tr -d '\n' | pbcopy"
 
@@ -98,6 +101,16 @@ httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grab
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
 
+
+git-pulls () {
+  git ls-remote origin 'pull/*/head' | awk '{print $2}' |
+  while read ref; do
+    pr=$(echo $ref | cut -d/ -f3)
+    git fetch origin $ref > /dev/null
+    files_changed=$(git show --pretty=format:'' --name-only FETCH_HEAD|wc -l)
+    echo "PR number $pr has changes in $files_changed files"
+  done
+}
 
 #enhanced ls
 alias ll='ls -FGlAhp'
@@ -214,6 +227,10 @@ alias mv='mv -iv'
 #open any file in atom to edit
 alias edit='atom'
 
+#Composer
+alias composer='/usr/local/bin/composer'
+
+#Reset profile
 alias resetb='source ~/.bash_profile'
 
 #show hidden files in finder
@@ -235,6 +252,8 @@ source ~/.bash_prompt
 # Set `emacs` as default editor
 export VISUAL=emacs
 export EDITOR="$VISUAL"
+
+export PATH="/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS:/Users/24g/.config/yarn/global"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/michael/.sdkman"
