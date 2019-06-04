@@ -253,9 +253,15 @@ source ~/.bash_prompt
 export VISUAL=emacs
 export EDITOR="$VISUAL"
 
-export PATH="/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/Applications/Wireshark.app/Contents/MacOS:/Users/24g/.config/yarn/global"
+export PATH="/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/Users/24g/.config/yarn/global:/Applications/Wireshark.app/Contents/MacOS"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/michael/.sdkman"
 [[ -s "/Users/michael/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/michael/.sdkman/bin/sdkman-init.sh"
 export LSCOLORS="ExFxBxDxCxegedabagacad"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/24g/google-cloud-sdk/path.bash.inc' ]; then . '/Users/24g/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/24g/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/24g/google-cloud-sdk/completion.bash.inc'; fi
